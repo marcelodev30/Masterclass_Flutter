@@ -9,7 +9,7 @@ class CPF {
     }
   }
 
-  bool validar(String cpf) {
+  static bool validar(String cpf) {
     int? _digito(int valorInt) {
       int cont = 0;
       int soma = 0;
