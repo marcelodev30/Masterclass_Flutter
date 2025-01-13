@@ -1,7 +1,7 @@
 class CPF {
   late String cpf;
   CPF(String cpf) {
-    if (validar(cpf)) {
+    if (Validar(cpf)) {
       this.cpf = cpf;
     } else {
       print('CPF está inválido');
@@ -9,11 +9,11 @@ class CPF {
     }
   }
 
-  static bool validar(String cpf) {
-    int? _digito(int valorInt) {
+  static bool Validar(String cpf) {
+    int? _CalcularDigito(int valorFinalDigito) {
       int cont = 0;
       int soma = 0;
-      for (var i = valorInt; i >= 2; i--) {
+      for (var i = valorFinalDigito; i >= 2; i--) {
         soma += int.parse(cpf[cont]) * i;
         cont++;
       }
@@ -31,8 +31,8 @@ class CPF {
     }
 
     if (cpf.length >= 11) {
-      return _digito(10) == int.parse(cpf[9]) &&
-          _digito(11) == int.parse(cpf[10]);
+      return _CalcularDigito(10) == int.parse(cpf[9]) &&
+          _CalcularDigito(11) == int.parse(cpf[10]);
     }
     return false;
   }
@@ -42,6 +42,6 @@ class CPF {
 }
 
 void main() {
-  CPF cpf = CPF('12367731446');
-  print(cpf);
+   
+  print(CPF.Validar('12367731446'));
 }
