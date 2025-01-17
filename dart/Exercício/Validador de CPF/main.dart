@@ -10,10 +10,11 @@ class CPF {
   }
 
   static bool Validar(String cpf) {
+    cpf = cpf.replaceAll('.', '').replaceAll('-', '');
     int? _CalcularDigito(int valorFinalDigito) {
       int cont = 0;
       int soma = 0;
-      for (var i = valorFinalDigito; i >= 2; i--) {
+      for (int i = valorFinalDigito; i >= 2; i--) {
         soma += int.parse(cpf[cont]) * i;
         cont++;
       }
@@ -33,8 +34,8 @@ class CPF {
     if (cpf.length >= 11) {
       return _CalcularDigito(10) == int.parse(cpf[9]) &&
           _CalcularDigito(11) == int.parse(cpf[10]);
-    }
-    return false;
+    } else
+      return false;
   }
 
   @override
@@ -42,6 +43,5 @@ class CPF {
 }
 
 void main() {
-   
-  print(CPF.Validar('12367731446'));
+  print(CPF('123.677.314-46'));
 }
