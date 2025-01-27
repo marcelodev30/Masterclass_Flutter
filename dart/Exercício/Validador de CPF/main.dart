@@ -19,14 +19,14 @@ class CPF {
         cont++;
       }
 
-      int resto = soma % 11;
+      int restoCalculor = soma % 11;
       int? resut;
 
-      if (resto < 2) {
+      if (restoCalculor < 2) {
         resut = 0;
       }
-      if (resto >= 2) {
-        resut = 11 - resto;
+      if (restoCalculor >= 2) {
+        resut = 11 - restoCalculor;
       }
       return resut;
     }
